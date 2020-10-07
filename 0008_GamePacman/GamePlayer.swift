@@ -24,6 +24,7 @@ class CgPlayer : CgActor {
  
     private var touchOperationEnabled : Bool = false
     private var targetPosition: CgPosition = .init()
+    private var touchTargetStart: Bool = false
 
     override init(binding object: CgSceneFrame, deligateActor: ActorDeligate) {
         super.init(binding: object, deligateActor: deligateActor)
@@ -44,6 +45,7 @@ class CgPlayer : CgActor {
     ///   - values: Parameters of message
     override func handleEvent(sender: CbObject, message: EnMessage, parameter values: [Int]) {
         switch message {
+            case .Accel: fallthrough
             case .Swipe where deligateActor.isOperationMode(mode: CgContext.EnOperationMode.Swipe):
                 if let direction = EnDirection(rawValue: values[0]) {
                     targetDirecition = direction
@@ -52,6 +54,7 @@ class CgPlayer : CgActor {
             case .Touch where deligateActor.isOperationMode(mode: CgContext.EnOperationMode.Touch):
                 setTargetPosition(x: values[0], y: values[1])
                 targetDirecition = decideDirectionByTarget(forcedDirectionChange: true)
+                position.amountMoved = 0
                 
             default:
                 break
@@ -77,6 +80,9 @@ class CgPlayer : CgActor {
         position.set(column: 13, row: 9, dx: 4)
         direction.set(to: .Stop)
         draw(to: .None)
+        
+        touchTargetStart = false
+        position.amountMoved = 0
     }
 
     /// Start
@@ -84,6 +90,7 @@ class CgPlayer : CgActor {
         super.start()
         timer_playerNotToEat.start()
         draw(to: direction.get())
+        drawTargetPosition(show: true)
     }
 
     /// Stop
@@ -94,13 +101,18 @@ class CgPlayer : CgActor {
     /// Update handler
     /// - Parameter interval: Interval time(ms) to update
     override func update(interval: Int) {
-        if deligateActor.isOperationMode(mode: CgContext.EnOperationMode.Touch) {
-            targetDirecition = decideDirectionByTarget()
-        }
-
         if actionState == .Turning {
             turn()
         } else {
+
+            if deligateActor.isOperationMode(mode: CgContext.EnOperationMode.Touch) {
+                if position.amountMoved > 0 {
+                    targetDirecition = decideDirectionByTarget()
+                    // REMARK: Without this code, player will quickly change directions.
+                    position.amountMoved = 0
+                }
+            }
+
             if canMove(to: targetDirecition) {
                 direction.set(to: targetDirecition)
             } else {
@@ -255,6 +267,7 @@ class CgPlayer : CgActor {
     /// Draw player disappeared animation (Player Miss)
     func drawPlayerDisappeared() {
         sprite.startAnimation(sprite_number, sequence: [3,4,5,6,7,8,9,10,11,12,13,13,14], timePerFrame: 0.13, repeat: false)
+        drawTargetPosition(show: false)
     }
     
     /// Clear player
@@ -267,15 +280,21 @@ class CgPlayer : CgActor {
     func setTargetPosition(x: Int, y:Int) {
         let position = CgPosition(x: CGFloat(x), y: CGFloat(y))
         targetPosition.set(position)
+        touchTargetStart = true
         drawTargetPosition(show: true)
     }
-
+    
+    /// Player decides the next direction to move towards the target position.
+    /// - Parameters:
+    ///   - forcedDirectionChange: True changes the direction the player is moving
+    /// - Returns: Next direction to move
     private func decideDirectionByTarget(forcedDirectionChange: Bool = false) -> EnDirection {
         let currentDirection = direction.get()
         var nextDirection: EnDirection  = .None
         let allDirections: [EnDirection] = [.Up, .Down, .Left, .Right]
         var minDistance = MAZE_MAX_DISTANCE
 
+        if position.isCenter() || forcedDirectionChange {
             for _direction in allDirections {
                 if _direction != currentDirection.getReverse() || forcedDirectionChange {
                     if canMove(to: _direction) {
@@ -291,13 +310,17 @@ class CgPlayer : CgActor {
             }
            
             if nextDirection == .None {
-                nextDirection = direction.getNext()
+                nextDirection = currentDirection.getReverse()
             }
+        } else {
+            nextDirection = currentDirection
+        }
 
         return nextDirection
     }
 
     func drawTargetPosition(show: Bool) {
+        guard deligateActor.isOperationMode(mode: CgContext.EnOperationMode.Touch) && touchTargetStart else { return }
         let spriteNumber = EnActor.TargetPacman.getSpriteNumber()
         if show {
             sprite.draw(spriteNumber, x: targetPosition.x, y: targetPosition.y, texture: 24)

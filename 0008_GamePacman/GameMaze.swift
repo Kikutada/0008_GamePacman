@@ -760,7 +760,41 @@ class CgSceneMaze: CgSceneFrame, ActorDeligate {
             "chhhhhhhhhhhhhhhhhhhhhhhhhhd"
         ]
 
-        return mazeSource
+        let mazeSourceExtra1: [String] = [
+                "aggggjiggggggjiggggggjiggggb",
+                "e1111EF111111EF111111EF1111f",
+                "e1AB1EF1AGGB1CD1AGGB1EF1AB1f",
+                "e3EF1EF1E  F1111E  F1EF1EF3f",
+                "e1CD1CD1CHHD1AB1CHHD1CD1CD1f",
+                "e111111111111EF111111111111f",
+                "kGGB1AGGB1AGGLKGGB1AGGB1AGGl",
+                "YHJF1EIHD1CHHJIHHD1CHJF1EIHZ",
+                "e1EF1EF111111EF111111EF1EF1f",
+                "e1EF1EKGGGGB1EF1AGGGGLF1EF1f",
+                "e1CD1CHHHHHD2CD2CHHHHHD1CD1f",
+                "e11111111          11111111f",
+                "e1AB1AGGB QhUWWVhR AGGB1AB1f",
+                "e1EF1CHHD f      e CHHD1EF1f",
+                "e1EF11111 f      e 11111EF1f",
+                "kGLF1AGGB f      e AGGB1EKGl",
+                "YHHD1EIHD SggggggT CHJF1CHHZ",
+                "e1111EF11          11EF1111f",
+                "e1AGGLF1AGGGGGGGGGGB1EKGGB1f",
+                "e1CHHJF1CHHHHJIHHHHD1EIHHD1f",
+                "e1111EF111111EF111111EF1111f",
+                "kGGB1EKGGGGB1EF1AGGGGLF1AGGl",
+                "YHHD1CHHHHHD2CD2CHHHHHD1CHHZ",
+                "e111111111111  111111111111f",
+                "e1AGGGB1AGGGGGGGGGGB1AGGGB1f",
+                "e1CHHJF1CHHHHJIHHHHD1EIHHD1f",
+                "e3111EF111111EF111111EF1113f",
+                "kGGB1EF1AB1AGLKGB1AB1EF1AGGl",
+                "YHHD1CD1EF1CHHHHD1EF1CD1CHHZ",
+                "e1111111EF11111111EF1111111f",
+                "chhhhhhhnmhhhhhhhhnmhhhhhhhd"
+        ]
+
+        return context.extraMode == CgContext.EnOnOff.Off ? mazeSource : mazeSourceExtra1
     }
 
 }

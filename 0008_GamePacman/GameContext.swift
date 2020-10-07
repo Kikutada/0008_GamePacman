@@ -259,14 +259,13 @@ class CgContext {
         let index = demo ? 0 : round-1
         let count = table_difficultySettings.count
         let table = (index < count) ? table_difficultySettings[index] : table_difficultySettings[count-1]
-        
         levelOfSpeed = table.levelOfSpeed
         timeWithPower = table.timeWithPower
         numberOfFeedsRemaingToSpurt = table.numberOfFeedsRemaingToSpurt
         levelOfAppearance = table.levelOfAppearance
         kindOfSpecialTarget = table.kindOfSpecialTarget
         timeNotToEat = table.timeNotToEat
-        intermission = table.intermission
+        intermission = table.intermission            
     }
     
     /// Get player speed

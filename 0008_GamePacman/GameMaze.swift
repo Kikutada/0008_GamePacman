@@ -65,6 +65,7 @@ protocol ActorDeligate {
     func getTileAttribute(to direction: EnDirection, position: CgPosition) -> EnMazeTile
     func isOperationMode(mode: CgContext.EnOperationMode) -> Bool
     func isDebugMode() -> Bool
+    func isDemoMode() -> Bool
 }
 
 /// Maze scene class for play mode
@@ -81,8 +82,6 @@ class CgSceneMaze: CgSceneFrame, ActorDeligate {
     private var ghosts = CgGhostManager()
     private var counter_judgeGhostsWavyChase: Int = 0
     private var counter_frame: Int = 0
-//    private var directionDemo: EnDirection = .None
-
     private var scene_intermission: [CgSceneFrame] = []
 
     convenience init(object: CgSceneFrame) {
@@ -555,6 +554,10 @@ class CgSceneMaze: CgSceneFrame, ActorDeligate {
 
     func isDebugMode() -> Bool {
         return context.debugMode == .On
+    }
+
+    func isDemoMode() -> Bool {
+        return context.demo
     }
 
     // ============================================================

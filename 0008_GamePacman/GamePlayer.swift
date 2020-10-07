@@ -44,6 +44,7 @@ class CgPlayer : CgActor {
     ///   - id: Message ID
     ///   - values: Parameters of message
     override func handleEvent(sender: CbObject, message: EnMessage, parameter values: [Int]) {
+        guard !deligateActor.isDemoMode() else { return }
         switch message {
             case .Accel: fallthrough
             case .Swipe where deligateActor.isOperationMode(mode: CgContext.EnOperationMode.Swipe):

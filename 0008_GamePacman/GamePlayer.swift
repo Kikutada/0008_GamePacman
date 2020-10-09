@@ -46,7 +46,7 @@ class CgPlayer : CgActor {
     override func handleEvent(sender: CbObject, message: EnMessage, parameter values: [Int]) {
         guard !deligateActor.isDemoMode() else { return }
         switch message {
-            case .Accel: fallthrough
+            case .Accel where deligateActor.isOperationMode(mode: CgContext.EnOperationMode.Accel): fallthrough
             case .Swipe where deligateActor.isOperationMode(mode: CgContext.EnOperationMode.Swipe):
                 if let direction = EnDirection(rawValue: values[0]) {
                     targetDirecition = direction

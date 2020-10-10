@@ -4,10 +4,10 @@ I tested the game level of Pacman as "GameLevelTest" project.
 This project is under construction.
 
 
-<img src="https://github.com/Kikutada/0008_GamePacman/blob/master/imgaes/IMG_001.png?raw=true" width=320>
-<img src="https://github.com/Kikutada/0008_GamePacman/blob/master/imgaes/IMG_002.png?raw=true" width=320>
-<img src="https://github.com/Kikutada/0008_GamePacman/blob/master/imgaes/IMG_003.png?raw=true" width=320>
-<img src="https://github.com/Kikutada/0008_GamePacman/blob/master/imgaes/IMG_004.png?raw=true" width=320>
+<img src="https://github.com/Kikutada/0008_GamePacman/blob/master/images/IMG_001.PNG?raw=true" width=320>
+<img src="https://github.com/Kikutada/0008_GamePacman/blob/master/images/IMG_002.PNG?raw=true" width=320>
+<img src="https://github.com/Kikutada/0008_GamePacman/blob/master/images/IMG_003.PNG?raw=true" width=320>
+<img src="https://github.com/Kikutada/0008_GamePacman/blob/master/images/IMG_004.PNG?raw=true" width=320>
 
 # Enviornments
 

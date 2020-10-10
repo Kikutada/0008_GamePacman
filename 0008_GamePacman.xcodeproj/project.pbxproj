@@ -138,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				D84418AB2531E58900E7CC99 /* README.md */,
-				D84418B02531E65400E7CC99 /* images */,
 				D8441820252358B700E7CC99 /* 0008_GamePacman */,
 				D844181F252358B700E7CC99 /* Products */,
 			);
@@ -176,6 +175,7 @@
 				D844182E252358BA00E7CC99 /* Assets.xcassets */,
 				D844182B252358B700E7CC99 /* Main.storyboard */,
 				D8441830252358BA00E7CC99 /* Info.plist */,
+				D84418B02531E65400E7CC99 /* images */,
 			);
 			path = 0008_GamePacman;
 			sourceTree = "<group>";

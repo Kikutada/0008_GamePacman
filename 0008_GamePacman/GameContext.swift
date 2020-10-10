@@ -47,8 +47,8 @@ class CgContext {
         
         func getNext() -> EnLanguage {
             switch self {
-            case .English: return .Japanese
-            case .Japanese: return .English
+                case .English: return .Japanese
+                case .Japanese: return .English
             }
         }
     }
@@ -65,8 +65,8 @@ class CgContext {
         
         func getNext() -> EnOnOff {
             switch self {
-            case .On: return .Off
-            case .Off: return .On
+                case .On: return .Off
+                case .Off: return .On
             }
         }
     }
@@ -83,8 +83,8 @@ class CgContext {
         
         func getNext() -> EnSetting {
             switch self {
-            case .Clear: return .Keep
-            case .Keep: return .Clear
+                case .Clear: return .Keep
+                case .Keep: return .Clear
             }
         }
     }

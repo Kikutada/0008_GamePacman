@@ -6,6 +6,7 @@ The source code is about 5000 lines, so please refer to it.
 
 You can touch, swipe, and operate Pac-Man with the accelerometer.
 There are two types of mazes.
+When debug mode is turned on, the target position and spurt status of the ghost are displayed.
 
 These can be selected on the configuration screen.
 

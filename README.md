@@ -1,8 +1,13 @@
 # Game Pacman
 
-I tested the game level of Pacman as "GameLevelTest" project.
-This project is under construction.
+I created Pac-Man as a programming study for Swift.
+I'm using the SpriteKit framework.
+The source code is about 5000 lines, so please refer to it.
 
+You can touch, swipe, and operate Pac-Man with the accelerometer.
+There are two types of mazes.
+
+These can be selected on the configuration screen.
 
 <img src="https://github.com/Kikutada/0008_GamePacman/blob/main/images/IMG_001.PNG?raw=true" width=480>
 <img src="https://github.com/Kikutada/0008_GamePacman/blob/main/images/IMG_002.PNG?raw=true" width=480>

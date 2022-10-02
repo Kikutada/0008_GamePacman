@@ -10,10 +10,10 @@ When debug mode is turned on, the target position and spurt status of the ghost 
 
 These can be selected on the configuration screen.
 
-<img src="https://github.com/Kikutada/0008_GamePacman/blob/main/images/IMG_001.PNG?raw=true" width=480>
-<img src="https://github.com/Kikutada/0008_GamePacman/blob/main/images/IMG_002.PNG?raw=true" width=480>
-<img src="https://github.com/Kikutada/0008_GamePacman/blob/main/images/IMG_003.PNG?raw=true" width=480>
-<img src="https://github.com/Kikutada/0008_GamePacman/blob/main/images/IMG_004.PNG?raw=true" width=480>
+<img src="https://github.com/Kikutada/0008_GamePacman/blob/main/0008_GamePacman/images/IMG_001.PNG?raw=true" width=480>
+<img src="https://github.com/Kikutada/0008_GamePacman/blob/main/0008_GamePacman/images/IMG_002.PNG?raw=true" width=480>
+<img src="https://github.com/Kikutada/0008_GamePacman/blob/main/0008_GamePacman/images/IMG_003.PNG?raw=true" width=480>
+<img src="https://github.com/Kikutada/0008_GamePacman/blob/main/0008_GamePacman/images/IMG_004.PNG?raw=true" width=480>
 
 # Enviornments
 
